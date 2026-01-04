@@ -74,7 +74,7 @@ class TwilioHandler:
         # Connect to gather for speech recognition
         gather = response.gather(
             input='speech',
-            action='/api/webhook/twilio/speech',
+            action='/webhook/twilio/speech',
             method='POST',
             timeout=40,
             speech_timeout=10,
@@ -95,7 +95,7 @@ class TwilioHandler:
         # Continue gathering more input
         gather = response.gather(
             input='speech',
-            action=f'/api/webhook/twilio/speech?call_sid={call_sid}',
+            action=f'/webhook/twilio/speech?call_sid={call_sid}',
             method='POST',
             timeout=40,
             speech_timeout=10,
@@ -143,7 +143,7 @@ class TwilioHandler:
         # Try to gather speech again
         gather = response.gather(
             input='speech',
-            action='/api/webhook/twilio/speech',
+            action='/webhook/twilio/speech',
             method='POST',
             timeout=40,
             speech_timeout=10,
