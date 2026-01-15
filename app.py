@@ -264,6 +264,11 @@ async def handle_twilio_voice_webhook(request: Request):
         error_response.say(message="Sorry, there was an error processing your call. Please try again later.")
         return Response(content=str(error_response), media_type="text/xml")
 
+@app.get("/webhook/twilio/voice")
+async def handle_twilio_voice_webhook_get():
+    """Return a friendly message for GET requests to the voice webhook"""
+    return {"message": "This is a Twilio voice webhook endpoint. It handles incoming voice calls from Twilio.", "status": "active"}
+
 @app.post("/webhook/twilio/speech")
 async def handle_twilio_speech_webhook(request: Request):
     """Handle speech recognition results from Twilio"""
